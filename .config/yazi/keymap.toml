@@ -1,0 +1,81 @@
+[manager]
+
+[[manager.prepend_keymap]]
+on   = [ "g", "e" ]
+run  = "cd /etc"
+desc = "Cd to /etc"
+
+[[manager.prepend_keymap]]
+on   = [ "g", "j" ]
+run  = "cd ~/jo"
+desc = "Cd to ~/jo"
+
+[[manager.prepend_keymap]]
+on   = [ "g", "k" ]
+run  = "cd ~/kv"
+desc = "Cd to ~/kv"
+
+[[manager.prepend_keymap]]
+on   = [ "g", "T" ]
+run  = "cd ~/.local/share/Trash/"
+desc = "Cd to Trash-dir"
+
+[[manager.prepend_keymap]]
+on   = [ "g", "r" ]
+run  = "cd /"
+desc = "Cd to /"
+
+[[manager.prepend_keymap]]
+on = [ "1" ]
+run = "plugin relative-motions --args=1"
+desc = "Move in relative steps"
+
+[[manager.prepend_keymap]]
+on = [ "2" ]
+run = "plugin relative-motions --args=2"
+desc = "Move in relative steps"
+
+[[manager.prepend_keymap]]
+on = [ "3" ]
+run = "plugin relative-motions --args=3"
+desc = "Move in relative steps"
+
+[[manager.prepend_keymap]]
+on = [ "4" ]
+run = "plugin relative-motions --args=4"
+desc = "Move in relative steps"
+
+[[manager.prepend_keymap]]
+on = [ "5" ]
+run = "plugin relative-motions --args=5"
+desc = "Move in relative steps"
+
+[[manager.prepend_keymap]]
+on = [ "6" ]
+run = "plugin relative-motions --args=6"
+desc = "Move in relative steps"
+
+[[manager.prepend_keymap]]
+on = [ "7" ]
+run = "plugin relative-motions --args=7"
+desc = "Move in relative steps"
+
+[[manager.prepend_keymap]]
+on = [ "8" ]
+run = "plugin relative-motions --args=8"
+desc = "Move in relative steps"
+
+[[manager.prepend_keymap]]
+on = [ "9" ]
+run = "plugin relative-motions --args=9"
+desc = "Move in relative steps"
+
+[[manager.prepend_keymap]]
+on   = "F"
+run  = "plugin jump-to-char"
+desc = "Jump to char"
+
+[[manager.prepend_keymap]]
+on   = "T"
+run  = "plugin --sync max-preview"
+desc = "Maximize or restore preview"
