@@ -104,8 +104,8 @@ if ! shopt -oq posix; then
   fi
 fi
 export PATH="$PATH:$HOME/.local/bin:$NPM_PATH"
-command -v zoxide && eval "$(zoxide init bash)"
-command -v starship && eval "$(starship init bash)"
+[ -x "$(command -v zoxide)" ] && eval "$(zoxide init bash)"
+[ -x "$(command -v starship)" ] && eval "$(starship init bash)"
 
             function fuck () {
                 TF_PYTHONIOENCODING=$PYTHONIOENCODING;
