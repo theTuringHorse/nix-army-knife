@@ -5,8 +5,8 @@ if wezterm.config_builder then
   config = wezterm.config_builder() -- get clearer error messages
 end
 
-config.font = wezterm.font 'Hack Nerd Font Mono '
-config.color_scheme = 'Gruvbox Dark (Gogh)'
+config.font = wezterm.font 'Caskaydia Cove Nerd Font'
+config.color_scheme = 'Kanagawa (Gogh)'
 config.font_size = 20
 config.adjust_window_size_when_changing_font_size = false
 

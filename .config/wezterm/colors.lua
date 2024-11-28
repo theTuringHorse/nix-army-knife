@@ -1,6 +1,6 @@
 local wezterm = require 'wezterm'
 
-local colors = wezterm.color.extract_colors_from_image '/home/johaan/share/wallpapers/fire-skull.jpg'
+local colors = wezterm.color.extract_colors_from_image '~/share/wallpapers/fire-skull.jpg'
 
   local ansi = {}
   local brights = {}

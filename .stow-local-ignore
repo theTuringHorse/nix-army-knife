@@ -22,3 +22,4 @@ _darcs
 ^/LICENSE.*
 ^/COPYING
 .*.bak$
+\.stow-local-ignore.example

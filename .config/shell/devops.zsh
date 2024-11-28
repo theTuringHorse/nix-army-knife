@@ -4,7 +4,6 @@ _heyws_completions() {
     profiles=($(sed -n 's/.*\[\([^]]*\)\].*/\1/p' ~/.aws/credentials)) # Extract profiles
     _describe 'aws profiles' profiles
 }
-
 compdef _heyws_completions heyws
 
 heyws() {
@@ -13,4 +12,3 @@ heyws() {
 }
 [ -f ~/.aws/active ] && export AWS_PROFILE=$(cat ~/.aws/active)
 ###
-
