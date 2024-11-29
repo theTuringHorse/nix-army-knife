@@ -5,6 +5,7 @@ if wezterm.config_builder then
   config = wezterm.config_builder() -- get clearer error messages
 end
 
+config.check_for_updates = false
 config.font = wezterm.font 'Caskaydia Cove Nerd Font'
 config.color_scheme = 'Kanagawa (Gogh)'
 config.font_size = 20

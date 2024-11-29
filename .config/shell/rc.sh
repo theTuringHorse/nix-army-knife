@@ -3,6 +3,7 @@
 export RUSTUP_HOME="$XDG_CONFIG_HOME/.rustup"
 export CARGO_HOME="$XDG_CONFIG_HOME/.cargo"
 
+export LESS="-FXR"
 [ "$SHELL" = "/usr/bin/zsh" ] && export RC=~/.zshrc
 [ "$SHELL" = "/usr/bin/bash" ] && export RC=~/.bashrc
 
