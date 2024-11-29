@@ -124,6 +124,11 @@ previewers = [
 	{ name = "*", run = "file" },
 ]
 
+prepend_previewers = [
+    { mime = "{image,audio,video}/*", run = "mediainfo"},
+    { mime = "application/x-subrip", run = "mediainfo"},
+]
+
 [input]
 cursor_blink = false
 

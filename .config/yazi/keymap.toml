@@ -95,7 +95,7 @@ keymap = [
 	{ on = [ "c", "n" ], run = "copy name_without_ext", desc = "Copy the filename without extension" },
 
 	# Filter
-	{ on = "f", run = "filter --smart", desc = "Filter files" },
+	{ on = "F", run = "filter --smart", desc = "Filter files" },
 
 	# Find
 	{ on = "/", run = "find --smart",            desc = "Find next file" },
@@ -150,6 +150,16 @@ keymap = [
 	{ on = "~",    run = "help", desc = "Open help" },
 	{ on = "<F1>", run = "help", desc = "Open help" },
 ]
+
+[[manager.prepend_keymap]]
+on   = "f"
+run  = "plugin jump-to-char"
+desc = "Jump to char"
+
+[[manager.prepend_keymap]]
+on   = "T"
+run  = "plugin --sync max-preview"
+desc = "Maximize or restore preview"
 
 [tasks]
 
@@ -320,5 +330,5 @@ keymap = [
 	{ on = "<Down>", run = "arrow 1",  desc = "Move cursor down" },
 
 	# Filtering
-	{ on = "f", run = "filter", desc = "Apply a filter for the help items" },
+	{ on = "F", run = "filter", desc = "Apply a filter for the help items" },
 ]
