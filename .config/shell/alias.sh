@@ -2,6 +2,7 @@ alias mis="udisksctl mount -b /dev/sda1"
 alias unmis="udisksctl unmount -b /dev/sda1"
 alias md=mkdir
 alias t=type
+alias rc="source $RC"
 
 alias lsg="ls -al | grep -i"
 alias lg="lazygit"

@@ -12,7 +12,7 @@ set -o emacs
 setopt correct
 
 # Basic auto/tab complete:
-autoload -U compinit
+autoload -Uz compinit
 zstyle ':completion:*' menu select
 zmodload zsh/complist
 compinit
@@ -24,7 +24,7 @@ for i in $SHELLDOTDIR/*; do
 done
 
 zsh_hightlight=/opt/plugs/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-[ -r "$zsh_hightlight" ] && source $zsh_hightlight
+# [ -r "$zsh_hightlight" ] && source $zsh_hightlight
 
 alias a2s="echo a2s not yet defined"
 # 👇 added via ☝️

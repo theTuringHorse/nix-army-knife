@@ -1,5 +1,0 @@
-[plugin]
-deps = [{ use = "dedukun/relative-motions", rev = "73f5542" }, { use = "yazi-rs/plugins:jump-to-char", rev = "b659791" }, { use = "Ape/open-with-cmd", rev = "8d7abc8" }, { use = "yazi-rs/plugins:max-preview", rev = "b659791" }, { use = "Ape/mediainfo", rev = "c69314e" }]
-
-[flavor]
-deps = []
