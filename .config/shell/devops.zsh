@@ -12,3 +12,7 @@ heyws() {
 [ -f ~/.aws/active ] && export AWS_PROFILE=$(cat ~/.aws/active)
 compdef _heyws_completions heyws
 ###
+
+easshy () {
+  ssh -o "Hostname=$2" $1 
+}
