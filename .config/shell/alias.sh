@@ -3,6 +3,7 @@ alias unmis="udisksctl unmount -b /dev/sda1"
 alias md=mkdir
 alias t=type
 alias rc="source $RC"
+alias ip="ip --color=auto"
 
 alias lsg="ls -al | grep -i"
 alias lg="lazygit"
