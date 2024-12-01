@@ -120,6 +120,11 @@ keymap = [
 
 	# Goto
 	{ on = [ "g", "h" ],       run = "cd ~",             desc = "Go to the home directory" },
+	{ on = [ "g", "e" ],       run = "cd /etc/",             desc = "Go to the etc directory" },
+	{ on = [ "g", "m" ],       run = "cd $MYHOME",             desc = "Go to MYHOME  directory" },
+	{ on = [ "g", "w" ],       run = "cd $WORKSPACE",             desc = "Go to workspace  directory" },
+	{ on = [ "g", "t" ],       run = "cd $TEMPDIR",             desc = "Go to temporary  directory" },
+	{ on = [ "g", "s" ],       run = "cd $SHAREDIR",             desc = "Go to share  directory" },
 	{ on = [ "g", "c" ],       run = "cd ~/.config",     desc = "Go to the config directory" },
 	{ on = [ "g", "d" ],       run = "cd ~/Downloads",   desc = "Go to the downloads directory" },
 	{ on = [ "g", "<Space>" ], run = "cd --interactive", desc = "Go to a directory interactively" },
