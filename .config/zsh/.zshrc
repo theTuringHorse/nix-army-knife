@@ -79,14 +79,6 @@ zstyle ':completion:*' list-dirs-first true
 zstyle ':completion:*' use-cache on
 zstyle ':completion:*' cache-path "$XDG_CACHE_HOME/zsh/zcompcache"
 
-# Don't complete uninteresting users
-zstyle ':completion:*:*:*:users' ignored-patterns \
-  adm amanda apache avahi bin colord daemon dbus ftp games gdm \
-  halt hplip ident junkbust lp mail mailnull messagebus named \
-  nobody nscd ntp operator pcap polkitd postfix postgres privoxy \
-  pulse pulsesys radvd rpc rpcuser rpm shutdown squid sshd sync \
-  sys usbmux uucp vcsa xfs '_*'
-
 # Kill/process completions
 zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
 zstyle ':completion:*:*:kill:*' menu yes select
@@ -96,44 +88,9 @@ zstyle ':completion:*:kill:*' force-list always
 zstyle ':completion:*:ssh:*' hosts off
 zstyle ':completion:*:(scp|rsync):*' tag-order 'hosts:-host:host hosts:-domain:domain hosts:-ipaddr:ip\ address *'
 
-# Use vi-style keys in completion menu
-bindkey -M menuselect 'h' vi-backward-char
-bindkey -M menuselect 'j' vi-down-line-or-history
-bindkey -M menuselect 'k' vi-up-line-or-history
-bindkey -M menuselect 'l' vi-forward-char
-# Undo in completion menu
-bindkey -M menuselect '^[[Z' reverse-menu-complete
-
-# Edit command in $EDITOR with Ctrl+X Ctrl+E
-autoload -Uz edit-command-line
-zle -N edit-command-line
-bindkey '^X^E' edit-command-line
-
 for i in $SHELLDOTDIR/auto/*sh; do
   [ -f $i ] && . $i
 done
 
-## keybinds
-# Word navigation (Ctrl+Left/Right, Alt+Left/Right)
-bindkey '^[[1;5D' backward-word
-bindkey '^[[1;5C' forward-word
-bindkey '^[[1;3D' backward-word
-bindkey '^[[1;3C' forward-word
-# Delete word backward with Ctrl+Backspace
-bindkey '^H' backward-kill-word
-# Quick history substring search with Up/Down
-autoload -Uz up-line-or-beginning-search down-line-or-beginning-search
-zle -N up-line-or-beginning-search
-zle -N down-line-or-beginning-search
-bindkey '^[[A' up-line-or-beginning-search
-bindkey '^[[B' down-line-or-beginning-search
-
-bindkey -s '^h' '^ucd ~\n'
-bindkey -s '^o' '^uyz\n'
-bindkey -s '^g' '^uzi\n'
-
-## syntax highlighting
-# zsh_hightlight=/opt/plugs/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-# [ -r "$zsh_hightlight" ] && source $zsh_hightlight
-# zsh_suggestions=~/opt/zsh-autosuggestions/zsh-autosuggestions.zsh
-# [ -r "$zsh_suggestions" ] && source $zsh_suggestions
+source $ZDOTDIR/keybinds.zsh
+# source $ZDOTDIR/plugins.zsh
