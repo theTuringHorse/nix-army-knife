@@ -3,6 +3,7 @@
 alias \
 	la="ls -A" \
 	ll="ls -lA" \
+	df="df -h" \
 	e=$EDITOR \
 	md=mkdir -p \
 	t=type \

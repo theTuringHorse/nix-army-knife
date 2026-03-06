@@ -9,7 +9,7 @@ vim.cmd "highlight StatusPercent guibg=#1d2021 guifg=#ebdbb2"
 vim.cmd "highlight StatusNorm guibg=none guifg=white"
 
 vim.o.statusline = "  %l "
-				.. " %#StatusType#" .. "<< %Y   >>"
+				.. "%#StatusType#" .. "<< %Y   >>"
 				.. "%#StatusFile#" .. "<< %F >>"
 				.. "%#StatusModified#" .. " %m "
 				.. "%#StatusNorm#" .. "%="

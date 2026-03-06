@@ -12,7 +12,7 @@ config.font_size = 20
 config.adjust_window_size_when_changing_font_size = false
 
 config.hide_tab_bar_if_only_one_tab = true
-config.window_background_opacity = 0.90
+config.window_background_opacity = 0.9
 config.tab_bar_at_bottom = true
 -- config.initial_rows = 150
 -- config.initial_cols= 150

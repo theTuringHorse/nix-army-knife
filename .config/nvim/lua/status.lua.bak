@@ -1,0 +1,39 @@
+-- Highlights
+vim.cmd "highlight StatusType guibg=#b16286 guifg=#1d2021"
+vim.cmd "highlight StatusFile guibg=#fabd2f guifg=#1d2021"
+vim.cmd "highlight StatusModified guibg=#1d2021 guifg=#d3869b"
+vim.cmd "highlight StatusBuffer guibg=#98971a guifg=#1d2021"
+vim.cmd "highlight StatusLocation guibg=#458588 guifg=#1d2021"
+vim.cmd "highlight StatusPercent guibg=#1d2021 guifg=#ebdbb2"
+vim.cmd "highlight StatusNorm guibg=none guifg=white"
+
+-- Powerline Separators
+local sep_left  = ''
+local sep_right = ''
+
+-- Statusline construction
+vim.o.statusline = table.concat {
+
+  -- LEFT SIDE
+  "%#StatusType#", "  %l ",
+  "%#StatusTypeStatusFile#", sep_left,  -- separator to next block
+  "%#StatusFile#", " %Y ", 
+  "%#StatusFileStatusModified#", sep_left,
+  "%#StatusModified#", " %m ",
+
+  -- FILL SPACE
+  "%#StatusNorm#", "%=",
+
+  -- RIGHT SIDE (reversed order, mirrored)
+  "%#StatusPercentStatusLocation#", sep_right,
+  "%#StatusLocation#", " 󰋁 %l,%c ",
+  "%#StatusLocationStatusBuffer#", sep_right,
+  "%#StatusBuffer#", "  %n ",
+}
+
+-- Define separators with proper color transitions
+vim.cmd "highlight StatusTypeStatusFile guifg=#b16286 guibg=#fabd2f"
+vim.cmd "highlight StatusFileStatusModified guifg=#fabd2f guibg=#1d2021"
+vim.cmd "highlight StatusLocationStatusBuffer guifg=#458588 guibg=#98971a"
+vim.cmd "highlight StatusPercentStatusLocation guifg=#1d2021 guibg=#458588"
+
