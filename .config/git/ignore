@@ -1,0 +1,6 @@
+**/.envrc
+**/*.ignore
+**/*.ignore.*
+**/*.local
+**/*.local.*
+**/.claude/settings.local.json

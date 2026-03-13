@@ -1,5 +1,5 @@
 [core]
-	excludesFile = ~/.config/git/gitignore_global
+	excludesFile = ~/.config/git/ignore
 [user]
 	name = wiz
 	email = wiz@oz.com
