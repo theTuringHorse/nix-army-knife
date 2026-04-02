@@ -23,6 +23,7 @@ alias \
 	k="kubectl" \
 	qr="qrencode -t ANSIUTF8" \
 	g="git" \
-	d="delta"
+	d="delta" \
+	c="claude"
 
 alias alert='notify-send --urgency=normal -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
