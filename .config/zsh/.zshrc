@@ -4,7 +4,7 @@ PS1='%B%F{green}%n%F{blue}@%F{cyan}%M%F{blue}:%~ %(?.%F{green}.%F{red})%#%f%b '
 RPROMPT='%(?..%F{red}[%?]%f)%1(j.%F{green}[%j].)%f '
 HISTSIZE=10000000
 SAVEHIST=$HISTSIZE
-export HISTFILE="$XDG_STATE_HOME/zsh_history"
+export HISTFILE="$XDG_STATE_HOME/zsh/zsh_history"
 # setopt inc_append_history
 setopt share_history
 setopt hist_ignore_dups       # Ignore consecutive duplicates
@@ -93,4 +93,5 @@ for i in $SHELLDOTDIR/auto/*sh; do
 done
 
 source $ZDOTDIR/keybinds.zsh
+source $ZDOTDIR/utils/pin.zsh
 # source $ZDOTDIR/plugins.zsh

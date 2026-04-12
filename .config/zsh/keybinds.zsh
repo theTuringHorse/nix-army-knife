@@ -21,6 +21,6 @@ bindkey '^[[B' down-line-or-beginning-search
 bindkey '^P' up-line-or-beginning-search
 bindkey '^N' down-line-or-beginning-search
 
-bindkey -s '^h' '^ucd ~\n'
+bindkey -s '^h' '^upin\n'
 bindkey -s '^o' '^uyz\n'
 bindkey -s '^g' '^uzi\n'

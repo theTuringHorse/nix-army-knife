@@ -3,27 +3,32 @@
 alias \
 	la="ls -A" \
 	ll="ls -lA" \
-	df="df -h" \
-	e=$EDITOR \
-	md=mkdir -p \
-	t=type \
-	ip="ip --color=auto" \
-	py="python" \
-	x="chmod +x" \
-	se="sudo -e" \
 	cp="cp -iv" \
 	mv="mv -iv" \
 	rm="rm -vI" \
-	bc="bc -ql" \
+	df="df -h" \
+	\
+	ip="ip --color=auto" \
 	grep="grep --color=auto" \
 	diff="diff --color=auto" \
+	\
+	e=$EDITOR \
+	py="python" \
+	x="chmod +x" \
+	se="sudo -e" \
+	bc="bc -ql" \
+	md="mkdir -p" \
+	t=type \
 	lsg="ls -al | grep -i" \
+	\
 	gui="gitui" \
+	g="git" \
 	tf="terraform" \
 	k="kubectl" \
+	\
 	qr="qrencode -t ANSIUTF8" \
-	g="git" \
 	d="delta" \
-	c="claude"
+	c="claude --allow-dangerously-skip-permissions" \
+	p="pin"
 
 alias alert='notify-send --urgency=normal -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
