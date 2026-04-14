@@ -18,8 +18,6 @@ function yz() {
 	rm -f -- "$tmp" > /dev/null
 }
 
-export LESS="-FXR"
-
 ## optional
 [ -x "$(command -v thefuck)" ] && eval $(thefuck --alias fuck)
 [ -x "$(command -v eza)" ] && alias ls="eza --icons=auto -1"

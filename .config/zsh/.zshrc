@@ -1,5 +1,7 @@
 # zshrc file
 
+export MPV_OPTS="--really-quiet"
+
 PS1='%B%F{green}%n%F{blue}@%F{cyan}%M%F{blue}:%~ %(?.%F{green}.%F{red})%#%f%b '
 RPROMPT='%(?..%F{red}[%?]%f)%1(j.%F{green}[%j].)%f '
 HISTSIZE=10000000

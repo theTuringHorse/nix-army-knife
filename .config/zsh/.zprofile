@@ -6,19 +6,12 @@ export PATH="$HOME/.local/bin:$XDG_DATA_HOME/cargo/bin:$PATH"
 export EDITOR="nvim"
 export VISUAL="nvim"
 export TERMINAL="wezterm"
-export TERMINAL_PROG="wezterm"
 export OPENER="xdg-open"
 export DIFFTOOL="$EDITOR -d"
 export PAGER="less"
 export BROWSER="firefox"
 export AURHELPER="paru"
 export DO_NOT_TRACK=1 # respected by docker and other apps
-eval "$(dircolors -b)"
-
-
-# Mpv
-	export MPV_OPTS="--really-quiet" # This is here because it's really only needed for interactive shell usage, rather than mpv scripts.
-
 
 # A few AMAZING fzf options
 	# export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
@@ -45,11 +38,9 @@ eval "$(dircolors -b)"
 	export LESS_TERMCAP_me="$(printf '%b' '[0m')"        # end mode
 	export LESS_TERMCAP_ue="$(printf '%b' '[0m')"        # end underline
 	export LESS_TERMCAP_se="$(printf '%b' '[0m')"        # end standout-mode
-	export LESSOPEN='| LESSQUIET=1 lesspipe.sh %s'
-	export LESSCOLORIZER='pygmentize'
-	export LESS='-iRX --use-color -Dd+r$Du+b$ --mouse --wheel-lines 2 --jump-target=.5 --status-column --LONG-PROMPT --quit-on-intr --no-histdups'
+	export LESS='-iRX --use-color -Dd+r$Du+b$ --mouse --wheel-lines 2 --jump-target=.5 --status-column --LONG-PROMPT --quit-on-intr'
 	export MANROFFOPT="-c"
-	# export MANPAGER="sh -c 'col -bx | bat -l man -p '"
+	export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 
 if [ "$TERM" = "linux" ]; then
 	# gruvbox in TTY ;)
