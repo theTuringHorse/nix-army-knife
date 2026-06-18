@@ -1,0 +1,32 @@
+[Unit]
+Description=rclone mount andromeda
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=notify
+ExecStartPre=/bin/mkdir -p %h/vm-mount
+ExecStart=/home/wiz/.local/bin/rclone mount andromeda:/home/wiz %h/vm-mount \
+  --vfs-cache-mode full \
+  --vfs-cache-max-size 20G \
+  --vfs-cache-max-age 96h \
+  --vfs-cache-poll-interval 1m \
+  --vfs-write-back 30s \
+  --vfs-fast-fingerprint \
+  --vfs-read-ahead 256M \
+  --vfs-read-chunk-size 32M \
+  --vfs-read-chunk-size-limit 1G \
+  --vfs-read-chunk-streams 4 \
+  --buffer-size 64M \
+  --dir-cache-time 72h \
+  --poll-interval 15s \
+  --attr-timeout 1s \
+  --transfers 4 \
+  --sftp-concurrency 24 \
+  --cache-dir %h/.cache/rclone
+ExecStop=/bin/fusermount -u %h/vm-mount
+Restart=on-failure
+RestartSec=10
+
+[Install]
+WantedBy=default.target

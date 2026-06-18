@@ -50,6 +50,7 @@ fi
 unset _comp_dump
 
 zmodload zsh/complist
+zmodload zsh/computil
 
 # Complete dotfiles without explicitly typing the dot
 _comp_options+=(globdots)

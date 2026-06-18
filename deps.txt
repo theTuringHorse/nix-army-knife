@@ -1,0 +1,17 @@
+zsh
+nvim
+git
+stow
+yazi
+eza
+fzf
+zoxide
+fd
+ripgrep
+imagemagick
+fastfetch
+tmux
+syncthing
+python-pip
+python-pipx
+git-delta
