@@ -1,0 +1,4 @@
+font-size = 18
+window-padding-x = 6
+window-padding-y = 8
+confirm-close-surface = false
