@@ -113,6 +113,24 @@ return function()
         },
     })
 
+    hl.config({
+        group = {
+            groupbar = {
+                font_size        = 16,
+                height           = 14,
+                col = {
+                    active   = 0x66ff00ff,
+                    inactive = 0x66777700,
+                },
+                indicator_height = 12,
+                indicator_gap    = 5,
+                rounding         = 20,
+                rounding_power   = 6.0,
+                round_only_edges = true,
+            },
+        },
+    })
+
     -- See https://wiki.hypr.land/Configuring/Layouts/Scrolling-Layout/ for more
     hl.config({
         scrolling = {

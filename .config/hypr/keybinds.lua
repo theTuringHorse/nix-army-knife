@@ -17,13 +17,19 @@ return function(programs)
     hl.bind(mainMod .. " + V", hl.dsp.window.float({ action = "toggle" }))
     hl.bind(mainMod .. " + SemiColon", hl.dsp.exec_cmd(menu))
     hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())
-    hl.bind(mainMod .. " + J", hl.dsp.layout("togglesplit"))    -- dwindle only
+    hl.bind(mainMod .. " + Z", hl.dsp.layout("togglesplit"))    -- dwindle only
+    hl.bind(mainMod .. " + G", hl.dsp.group.toggle())
+    hl.bind(mainMod .. " + tab", hl.dsp.group.next())
 
     -- Move focus with mainMod + arrow keys
     hl.bind(mainMod .. " + left",  hl.dsp.focus({ direction = "left" }))
     hl.bind(mainMod .. " + right", hl.dsp.focus({ direction = "right" }))
     hl.bind(mainMod .. " + up",    hl.dsp.focus({ direction = "up" }))
     hl.bind(mainMod .. " + down",  hl.dsp.focus({ direction = "down" }))
+
+    -- Cycle focus through windows with mainMod + J/K
+    hl.bind(mainMod .. " + J", hl.dsp.window.cycle_next())
+    hl.bind(mainMod .. " + K", hl.dsp.window.cycle_next({ next = false }))
 
     -- Switch workspaces with mainMod + [0-9]
     -- Move active window to a workspace with mainMod + SHIFT + [0-9]
@@ -32,6 +38,12 @@ return function(programs)
         hl.bind(mainMod .. " + " .. key,             hl.dsp.focus({ workspace = i}))
         hl.bind(mainMod .. " + SHIFT + " .. key,     hl.dsp.window.move({ workspace = i }))
     end
+
+    -- Switch to / move active window to next or previous workspace
+    hl.bind(mainMod .. " + L",         hl.dsp.focus({ workspace = "+1" }))
+    hl.bind(mainMod .. " + H",         hl.dsp.focus({ workspace = "-1" }))
+    hl.bind(mainMod .. " + SHIFT + L", hl.dsp.window.move({ workspace = "+1" }))
+    hl.bind(mainMod .. " + SHIFT + H", hl.dsp.window.move({ workspace = "-1" }))
 
     -- Example special workspace (scratchpad)
     hl.bind(mainMod .. " + S",         hl.dsp.workspace.toggle_special("magic"))
