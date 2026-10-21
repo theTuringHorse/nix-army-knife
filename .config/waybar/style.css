@@ -13,7 +13,7 @@
 @define-color orange  #fe8019;
 
 * {
-    /* Nerd Font includes the Font Awesome glyphs used in config.jsonc */
+    /* Nerd Font provides every icon used in config.jsonc */
     font-family: "JetBrainsMono Nerd Font Propo", "JetBrainsMono Nerd Font", sans-serif;
     font-size: 13px;
     min-height: 0;
@@ -22,12 +22,6 @@
 window#waybar {
     background-color: alpha(@bg, 0.9);
     color: @fg;
-    transition-property: background-color;
-    transition-duration: .5s;
-}
-
-window#waybar.hidden {
-    opacity: 0.2;
 }
 
 tooltip {
@@ -44,10 +38,6 @@ button {
     box-shadow: none;
     border: none;
     border-radius: 0;
-}
-
-button:hover {
-    background: inherit;
 }
 
 /* Left side */
@@ -71,8 +61,7 @@ button:hover {
     background: @bg2;
 }
 
-#workspaces button.active,
-#workspaces button.focused {
+#workspaces button.active {
     color: @bg;
     background-color: @yellow;
 }
@@ -82,48 +71,29 @@ button:hover {
     background-color: @red;
 }
 
-#submap,
-#mode {
-    color: @bg;
-    background-color: @orange;
-}
-
 #window {
-    color: @fg;
     margin: 0 8px;
 }
 
-window#waybar.empty #window {
-    background: transparent;
-}
-
 /* Every module gets the same rounded pill */
-#clock,
-#battery,
+#submap,
+#mpd,
+#idle_inhibitor,
+#pulseaudio,
+#network,
+#power-profiles-daemon,
 #cpu,
 #memory,
-#disk,
 #temperature,
 #backlight,
-#network,
-#pulseaudio,
-#wireplumber,
-#custom-media,
-#custom-power,
+#battery,
 #tray,
-#submap,
-#mode,
-#idle_inhibitor,
-#scratchpad,
-#power-profiles-daemon,
-#keyboard-state,
-#language,
-#mpd {
+#clock,
+#custom-power {
     padding: 0 10px;
     margin: 3px 0;
     background-color: @bg1;
     border-radius: 6px;
-    color: @fg;
 }
 
 .modules-right > widget:last-child > * {
@@ -131,20 +101,16 @@ window#waybar.empty #window {
 }
 
 /* Accent = text color, not background */
-#mpd            { color: @aqua; }
-#mpd.paused,
-#mpd.stopped    { color: @gray; }
-#mpd.disconnected { color: @red; }
+#submap { color: @bg; background-color: @orange; }
+
+#mpd        { color: @aqua; }
+#mpd.paused { color: @gray; }
 
 #idle_inhibitor           { color: @gray; }
 #idle_inhibitor.activated { color: @yellow; }
 
-#pulseaudio        { color: @yellow; }
-#pulseaudio.muted  { color: @gray; }
-#pulseaudio:hover  { background-color: @bg2; }
-
-#wireplumber       { color: @yellow; }
-#wireplumber.muted { color: @gray; }
+#pulseaudio       { color: @yellow; }
+#pulseaudio.muted { color: @gray; }
 
 #network              { color: @blue; }
 #network.disconnected { color: @red; }
@@ -155,76 +121,18 @@ window#waybar.empty #window {
 
 #cpu         { color: @green; }
 #memory      { color: @purple; }
-#disk        { color: @orange; }
 #temperature { color: @orange; }
 #temperature.critical { color: @bg; background-color: @red; }
 #backlight   { color: @yellow; }
 
-#keyboard-state > label {
-    padding: 0 4px;
-}
-
-#keyboard-state > label.locked {
-    color: @yellow;
-}
-
-#language { color: @aqua; }
-
 #battery                  { color: @green; }
 #battery.charging,
 #battery.plugged          { color: @aqua; }
-#battery.warning:not(.charging) { color: @yellow; }
+#battery.warning:not(.charging)  { color: @yellow; }
+#battery.critical:not(.charging) { color: @bg; background-color: @red; }
 
-@keyframes blink {
-    to {
-        background-color: @bg1;
-        color: @red;
-    }
-}
+#clock { font-weight: bold; }
 
-/* steps() instead of linear limits cpu usage */
-#battery.critical:not(.charging) {
-    background-color: @red;
-    color: @bg;
-    animation-name: blink;
-    animation-duration: 0.5s;
-    animation-timing-function: steps(12);
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
-}
-
-#clock { color: @fg; font-weight: bold; }
-
-#tray > .passive {
-    -gtk-icon-effect: dim;
-}
-
-#tray > .needs-attention {
-    -gtk-icon-effect: highlight;
-    background-color: @red;
-}
+#tray > .needs-attention { background-color: @red; }
 
 #custom-power { color: @red; }
-
-#scratchpad.empty {
-    background-color: transparent;
-}
-
-#privacy {
-    padding: 0;
-}
-
-#privacy-item {
-    padding: 0 6px;
-    margin: 3px 0;
-    border-radius: 6px;
-    color: @bg;
-}
-
-#privacy-item.screenshare { background-color: @orange; }
-#privacy-item.audio-in    { background-color: @green; }
-#privacy-item.audio-out   { background-color: @blue; }
-
-label:focus {
-    background-color: transparent;
-}

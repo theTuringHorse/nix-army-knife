@@ -9,7 +9,7 @@ return function(programs)
 
     -- Example binds, see https://wiki.hypr.land/Configuring/Basics/Binds/ for more
     hl.bind(mainMod .. " + O", hl.dsp.exec_cmd(terminal))
-    hl.bind(mainMod .. " + B", hl.dsp.exec_cmd(browser))
+    hl.bind(mainMod .. " + F", hl.dsp.exec_cmd(browser))
     local closeWindowBind = hl.bind(mainMod .. " + SHIFT + X", hl.dsp.window.close())
     -- closeWindowBind:set_enabled(false)
     hl.bind(mainMod .. " + SHIFT + Q", hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"))
@@ -50,7 +50,7 @@ return function(programs)
     -- `spawn` (optional) is launched when the scratchpad is opened while empty.
     local scratchpads = {
         { name = "magic", key = "S" },
-        { name = "web",    key = "F", spawn = browser },
+        { name = "web",    key = "B", spawn = browser },
         { name = "claude", key = "C", spawn = terminal .. " start --cwd " .. os.getenv("HOME") .. "/workspace/claude -- claude" },
     }
     for _, pad in ipairs(scratchpads) do

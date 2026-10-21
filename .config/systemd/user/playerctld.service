@@ -1,0 +1,10 @@
+[Unit]
+Description=Keep track of media player activity
+
+[Service]
+Type=dbus
+BusName=org.mpris.MediaPlayer2.playerctld
+ExecStart=/usr/bin/playerctld
+
+[Install]
+WantedBy=default.target
