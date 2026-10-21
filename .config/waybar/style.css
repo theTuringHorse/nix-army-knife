@@ -1,0 +1,230 @@
+/* Gruvbox dark — matches nvim/statusline */
+@define-color bg      #1d2021;
+@define-color bg1     #3c3836;
+@define-color bg2     #504945;
+@define-color fg      #ebdbb2;
+@define-color gray    #928374;
+@define-color red     #fb4934;
+@define-color green   #b8bb26;
+@define-color yellow  #fabd2f;
+@define-color blue    #83a598;
+@define-color purple  #d3869b;
+@define-color aqua    #8ec07c;
+@define-color orange  #fe8019;
+
+* {
+    /* Nerd Font includes the Font Awesome glyphs used in config.jsonc */
+    font-family: "JetBrainsMono Nerd Font Propo", "JetBrainsMono Nerd Font", sans-serif;
+    font-size: 13px;
+    min-height: 0;
+}
+
+window#waybar {
+    background-color: alpha(@bg, 0.9);
+    color: @fg;
+    transition-property: background-color;
+    transition-duration: .5s;
+}
+
+window#waybar.hidden {
+    opacity: 0.2;
+}
+
+tooltip {
+    background-color: @bg;
+    border: 1px solid @bg2;
+    border-radius: 6px;
+}
+
+tooltip label {
+    color: @fg;
+}
+
+button {
+    box-shadow: none;
+    border: none;
+    border-radius: 0;
+}
+
+button:hover {
+    background: inherit;
+}
+
+/* Left side */
+#workspaces {
+    margin: 3px 4px 3px 6px;
+    padding: 0 2px;
+    background-color: @bg1;
+    border-radius: 6px;
+}
+
+#workspaces button {
+    padding: 0 7px;
+    margin: 2px 0;
+    color: @gray;
+    background-color: transparent;
+    border-radius: 4px;
+}
+
+#workspaces button:hover {
+    color: @fg;
+    background: @bg2;
+}
+
+#workspaces button.active,
+#workspaces button.focused {
+    color: @bg;
+    background-color: @yellow;
+}
+
+#workspaces button.urgent {
+    color: @bg;
+    background-color: @red;
+}
+
+#submap,
+#mode {
+    color: @bg;
+    background-color: @orange;
+}
+
+#window {
+    color: @fg;
+    margin: 0 8px;
+}
+
+window#waybar.empty #window {
+    background: transparent;
+}
+
+/* Every module gets the same rounded pill */
+#clock,
+#battery,
+#cpu,
+#memory,
+#disk,
+#temperature,
+#backlight,
+#network,
+#pulseaudio,
+#wireplumber,
+#custom-media,
+#custom-power,
+#tray,
+#submap,
+#mode,
+#idle_inhibitor,
+#scratchpad,
+#power-profiles-daemon,
+#keyboard-state,
+#language,
+#mpd {
+    padding: 0 10px;
+    margin: 3px 0;
+    background-color: @bg1;
+    border-radius: 6px;
+    color: @fg;
+}
+
+.modules-right > widget:last-child > * {
+    margin-right: 6px;
+}
+
+/* Accent = text color, not background */
+#mpd            { color: @aqua; }
+#mpd.paused,
+#mpd.stopped    { color: @gray; }
+#mpd.disconnected { color: @red; }
+
+#idle_inhibitor           { color: @gray; }
+#idle_inhibitor.activated { color: @yellow; }
+
+#pulseaudio        { color: @yellow; }
+#pulseaudio.muted  { color: @gray; }
+#pulseaudio:hover  { background-color: @bg2; }
+
+#wireplumber       { color: @yellow; }
+#wireplumber.muted { color: @gray; }
+
+#network              { color: @blue; }
+#network.disconnected { color: @red; }
+
+#power-profiles-daemon.performance { color: @red; }
+#power-profiles-daemon.balanced    { color: @blue; }
+#power-profiles-daemon.power-saver { color: @green; }
+
+#cpu         { color: @green; }
+#memory      { color: @purple; }
+#disk        { color: @orange; }
+#temperature { color: @orange; }
+#temperature.critical { color: @bg; background-color: @red; }
+#backlight   { color: @yellow; }
+
+#keyboard-state > label {
+    padding: 0 4px;
+}
+
+#keyboard-state > label.locked {
+    color: @yellow;
+}
+
+#language { color: @aqua; }
+
+#battery                  { color: @green; }
+#battery.charging,
+#battery.plugged          { color: @aqua; }
+#battery.warning:not(.charging) { color: @yellow; }
+
+@keyframes blink {
+    to {
+        background-color: @bg1;
+        color: @red;
+    }
+}
+
+/* steps() instead of linear limits cpu usage */
+#battery.critical:not(.charging) {
+    background-color: @red;
+    color: @bg;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: steps(12);
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+#clock { color: @fg; font-weight: bold; }
+
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+    background-color: @red;
+}
+
+#custom-power { color: @red; }
+
+#scratchpad.empty {
+    background-color: transparent;
+}
+
+#privacy {
+    padding: 0;
+}
+
+#privacy-item {
+    padding: 0 6px;
+    margin: 3px 0;
+    border-radius: 6px;
+    color: @bg;
+}
+
+#privacy-item.screenshare { background-color: @orange; }
+#privacy-item.audio-in    { background-color: @green; }
+#privacy-item.audio-out   { background-color: @blue; }
+
+label:focus {
+    background-color: transparent;
+}

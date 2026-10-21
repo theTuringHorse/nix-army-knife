@@ -9,30 +9,27 @@
 -- Create your files separately and then require them like this:
 -- require("myColors")
 
-
 ------------------
 ---- MONITORS ----
 ------------------
 
 -- See https://wiki.hypr.land/Configuring/Basics/Monitors/
 hl.monitor({
-    output   = "",
-    mode     = "preferred",
-    position = "auto",
-    scale    = "auto",
+	output = "",
+	mode = "preferred",
+	position = "auto",
+	scale = "auto",
 })
-
 
 ---------------------
 ---- MY PROGRAMS ----
 ---------------------
 
 -- Set programs that you use
-local terminal    = "wezterm"
+local terminal = "wezterm"
 local fileManager = "dolphin"
-local menu        = "hyprlauncher"
-local browser     = "firefox"
-
+local menu = "rofi -show drun -show-icons"
+local browser = "firefox"
 
 -------------------
 ---- AUTOSTART ----
@@ -43,12 +40,11 @@ local browser     = "firefox"
 -- Autostart necessary processes (like notifications daemons, status bars, etc.)
 -- Or execute your favorite apps at launch like this:
 --
-hl.on("hyprland.start", function ()
-    hl.exec_cmd("nm-applet --indicator")
-    hl.exec_cmd("waybar")
-    hl.exec_cmd("hyprpaper")
+hl.on("hyprland.start", function()
+	hl.exec_cmd("nm-applet --indicator")
+	hl.exec_cmd("waybar")
+	hl.exec_cmd("hyprpaper")
 end)
-
 
 -------------------------------
 ---- ENVIRONMENT VARIABLES ----
@@ -58,7 +54,6 @@ end)
 
 hl.env("XCURSOR_SIZE", "24")
 hl.env("HYPRCURSOR_SIZE", "24")
-
 
 -----------------------
 ----- PERMISSIONS -----
@@ -78,68 +73,63 @@ hl.env("HYPRCURSOR_SIZE", "24")
 -- hl.permission("/usr/(lib|libexec|lib64)/xdg-desktop-portal-hyprland", "screencopy", "allow")
 -- hl.permission("/usr/(bin|local/bin)/hyprpm", "plugin", "allow")
 
-
 -----------------------
 ---- LOOK AND FEEL ----
 -----------------------
 
 require("lookandfeel")()
 
-
 ----------------
 ----  MISC  ----
 ----------------
 
 hl.config({
-    misc = {
-        force_default_wallpaper = -1,    -- Set to 0 or 1 to disable the anime mascot wallpapers
-        disable_hyprland_logo   = false, -- If true disables the random hyprland logo / anime girl background. :(
-    },
+	misc = {
+		force_default_wallpaper = -1, -- Set to 0 or 1 to disable the anime mascot wallpapers
+		disable_hyprland_logo = false, -- If true disables the random hyprland logo / anime girl background. :(
+	},
 })
-
 
 ---------------
 ---- INPUT ----
 ---------------
 
 hl.config({
-    input = {
-        kb_layout  = "us",
-        kb_variant = "",
-        kb_model   = "",
-        kb_options = "",
-        kb_rules   = "",
+	input = {
+		kb_layout = "us",
+		kb_variant = "",
+		kb_model = "",
+		kb_options = "",
+		kb_rules = "",
 
-        follow_mouse = 1,
+		follow_mouse = 1,
 
-        sensitivity = 0, -- -1.0 - 1.0, 0 means no modification.
+		sensitivity = 0, -- -1.0 - 1.0, 0 means no modification.
 
-        touchpad = {
-            natural_scroll = false,
-        },
-    },
+		touchpad = {
+			natural_scroll = false,
+		},
+	},
 })
 
 hl.gesture({
-    fingers = 3,
-    direction = "horizontal",
-    action = "workspace"
+	fingers = 3,
+	direction = "horizontal",
+	action = "workspace",
 })
 
 -- Example per-device config
 -- See https://wiki.hypr.land/Configuring/Advanced-and-Cool/Devices/ for more
 hl.device({
-    name        = "epic-mouse-v1",
-    sensitivity = -0.5,
+	name = "epic-mouse-v1",
+	sensitivity = -0.5,
 })
-
 
 ---------------------
 ---- KEYBINDINGS ----
 ---------------------
 
 require("keybinds")({ terminal = terminal, fileManager = fileManager, menu = menu, browser = browser })
-
 
 --------------------------------
 ---- WINDOWS AND WORKSPACES ----
@@ -151,27 +141,27 @@ require("keybinds")({ terminal = terminal, fileManager = fileManager, menu = men
 -- Example window rules that are useful
 
 local suppressMaximizeRule = hl.window_rule({
-    -- Ignore maximize requests from all apps. You'll probably like this.
-    name  = "suppress-maximize-events",
-    match = { class = ".*" },
+	-- Ignore maximize requests from all apps. You'll probably like this.
+	name = "suppress-maximize-events",
+	match = { class = ".*" },
 
-    suppress_event = "maximize",
+	suppress_event = "maximize",
 })
 -- suppressMaximizeRule:set_enabled(false)
 
 hl.window_rule({
-    -- Fix some dragging issues with XWayland
-    name  = "fix-xwayland-drags",
-    match = {
-        class      = "^$",
-        title      = "^$",
-        xwayland   = true,
-        float      = true,
-        fullscreen = false,
-        pin        = false,
-    },
+	-- Fix some dragging issues with XWayland
+	name = "fix-xwayland-drags",
+	match = {
+		class = "^$",
+		title = "^$",
+		xwayland = true,
+		float = true,
+		fullscreen = false,
+		pin = false,
+	},
 
-    no_focus = true,
+	no_focus = true,
 })
 
 -- Layer rules also return a handle.
@@ -184,9 +174,9 @@ hl.window_rule({
 
 -- Hyprland-run windowrule
 hl.window_rule({
-    name  = "move-hyprland-run",
-    match = { class = "hyprland-run" },
+	name = "move-hyprland-run",
+	match = { class = "hyprland-run" },
 
-    move  = "20 monitor_h-120",
-    float = true,
+	move = "20 monitor_h-120",
+	float = true,
 })

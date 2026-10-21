@@ -45,9 +45,22 @@ return function(programs)
     hl.bind(mainMod .. " + SHIFT + L", hl.dsp.window.move({ workspace = "+1" }))
     hl.bind(mainMod .. " + SHIFT + H", hl.dsp.window.move({ workspace = "-1" }))
 
-    -- Example special workspace (scratchpad)
-    hl.bind(mainMod .. " + S",         hl.dsp.workspace.toggle_special("magic"))
-    hl.bind(mainMod .. " + SHIFT + S", hl.dsp.window.move({ workspace = "special:magic" }))
+    -- Named special workspaces (scratchpads)
+    -- mainMod + key toggles the scratchpad, mainMod + SHIFT + key moves the active window into it.
+    -- `spawn` (optional) is launched when the scratchpad is opened while empty.
+    local scratchpads = {
+        { name = "magic", key = "S" },
+        { name = "web",    key = "F", spawn = browser },
+        { name = "claude", key = "C", spawn = terminal .. " start --cwd " .. os.getenv("HOME") .. "/workspace/claude -- claude" },
+    }
+    for _, pad in ipairs(scratchpads) do
+        local workspace = "special:" .. pad.name
+        hl.bind(mainMod .. " + " .. pad.key,             hl.dsp.workspace.toggle_special(pad.name))
+        hl.bind(mainMod .. " + SHIFT + " .. pad.key,     hl.dsp.window.move({ workspace = workspace }))
+        if pad.spawn then
+            hl.workspace_rule({ workspace = workspace, on_created_empty = pad.spawn })
+        end
+    end
 
     -- Scroll through existing workspaces with mainMod + scroll
     hl.bind(mainMod .. " + mouse_down", hl.dsp.focus({ workspace = "e+1" }))
@@ -56,6 +69,16 @@ return function(programs)
     -- Move/resize windows with mainMod + LMB/RMB and dragging
     hl.bind(mainMod .. " + mouse:272", hl.dsp.window.drag(),   { mouse = true })
     hl.bind(mainMod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
+
+    -- Screenshots (grim + slurp + satty): every capture is saved to shotDir and copied to the clipboard
+    local shotDir = os.getenv("HOME") .. "/share/Screenshots"
+    local shotFile = shotDir .. "/Screenshot-$(date +%Y-%m-%d_%H-%M-%S).png"
+    local function shot(grimArgs)
+        return 'mkdir -p "' .. shotDir .. '" && f="' .. shotFile .. '" && grim ' .. grimArgs .. ' "$f" && wl-copy < "$f"'
+    end
+    hl.bind("Print",               hl.dsp.exec_cmd(shot("")))                -- full screen
+    hl.bind("SHIFT + Print",       hl.dsp.exec_cmd(shot('-g "$(slurp)"')))   -- region
+    hl.bind(mainMod .. " + Print", hl.dsp.exec_cmd('mkdir -p "' .. shotDir .. '" && grim -g "$(slurp)" - | satty --filename - --output-filename "' .. shotFile .. '" --copy-command wl-copy --actions-on-enter save-to-clipboard,save-to-file,exit'))  -- region -> annotate
 
     -- Laptop multimedia keys for volume and LCD brightness
     hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd("wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"), { locked = true, repeating = true })
