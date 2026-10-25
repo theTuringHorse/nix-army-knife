@@ -1,8 +1,8 @@
-local wezterm = require 'wezterm'
+local wezterm = require("wezterm")
 local config = {}
 
 if wezterm.config_builder then
-  config = wezterm.config_builder() -- get clearer error messages
+	config = wezterm.config_builder() -- get clearer error messages
 end
 
 config.check_for_updates = false
@@ -18,14 +18,14 @@ config.tab_bar_at_bottom = true
 -- config.initial_cols= 150
 -- config.default_prog = { '/usr/bin/zsh'}
 
- config.keys = {
-  { key = 'l', mods = 'ALT', action = wezterm.action.ShowLauncher },
+config.keys = {
+	{ key = "l", mods = "ALT", action = wezterm.action.ShowLauncher },
 }
 config.window_padding = {
-  left = 6,
-  right = 2,
-  top = 8,
-  bottom = 0,
+	left = 2,
+	right = 4,
+	top = 8,
+	bottom = 0,
 }
 
 return config
