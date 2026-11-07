@@ -97,4 +97,4 @@ done
 
 source $ZDOTDIR/keybinds.zsh
 source $ZDOTDIR/utils/pin.zsh
-# source $ZDOTDIR/plugins.zsh
+source $ZDOTDIR/plugins.zsh  # keep last: syntax-highlighting wraps existing widgets
