@@ -46,7 +46,7 @@ Plugin-manager-free. Entry point is `init.lua` which sets `<Space>` as leader an
 ### Key tool configs
 
 | File | Notable settings |
-|------|-----------------|
+| ---- | --------------- |
 | `wezterm/wezterm.lua` | Font size 20, opacity 0.9, Alt+L launcher |
 | `tmux/tmux.conf` | oh-my-tmux base (do not edit directly) |
 | `tmux/tmux.conf.local` | Local overrides for theme and bindings |

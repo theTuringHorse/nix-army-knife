@@ -1,0 +1,102 @@
+[Default Applications]
+# File manager
+inode/directory=org.gnome.Nautilus.desktop
+application/x-gnome-saved-search=org.gnome.Nautilus.desktop
+
+# Browser
+text/html=firefox.desktop
+application/xhtml+xml=firefox.desktop
+x-scheme-handler/http=firefox.desktop
+x-scheme-handler/https=firefox.desktop
+x-scheme-handler/about=firefox.desktop
+x-scheme-handler/unknown=firefox.desktop
+
+# App URL handlers
+x-scheme-handler/claude-cli=claude-code-url-handler.desktop
+x-scheme-handler/claude=claude-desktop.desktop
+x-scheme-handler/logseq=logseq.desktop
+
+# Video (generated from mpv.desktop MimeType=):
+#   grep '^MimeType=' /usr/share/applications/mpv.desktop | cut -d= -f2 | tr ';' '\n' | grep '^video/' | sort -u | sed 's/$/=mpv.desktop/'
+video/3gp=mpv.desktop
+video/3gpp=mpv.desktop
+video/3gpp2=mpv.desktop
+video/avi=mpv.desktop
+video/divx=mpv.desktop
+video/dv=mpv.desktop
+video/fli=mpv.desktop
+video/flv=mpv.desktop
+video/mkv=mpv.desktop
+video/mp2t=mpv.desktop
+video/mp4=mpv.desktop
+video/mp4v-es=mpv.desktop
+video/mpeg=mpv.desktop
+video/msvideo=mpv.desktop
+video/ogg=mpv.desktop
+video/quicktime=mpv.desktop
+video/vnd.avi=mpv.desktop
+video/vnd.divx=mpv.desktop
+video/vnd.mpegurl=mpv.desktop
+video/vnd.rn-realvideo=mpv.desktop
+video/webm=mpv.desktop
+video/x-avi=mpv.desktop
+video/x-flc=mpv.desktop
+video/x-flic=mpv.desktop
+video/x-flv=mpv.desktop
+video/x-m4v=mpv.desktop
+video/x-matroska=mpv.desktop
+video/x-mpeg2=mpv.desktop
+video/x-mpeg3=mpv.desktop
+video/x-ms-afs=mpv.desktop
+video/x-ms-asf=mpv.desktop
+video/x-msvideo=mpv.desktop
+video/x-ms-wmv=mpv.desktop
+video/x-ms-wmx=mpv.desktop
+video/x-ms-wvxvideo=mpv.desktop
+video/x-ogm=mpv.desktop
+video/x-ogm+ogg=mpv.desktop
+video/x-theora=mpv.desktop
+video/x-theora+ogg=mpv.desktop
+
+# Images (generated from org.gnome.eog.desktop MimeType=):
+#   grep '^MimeType=' /usr/share/applications/org.gnome.eog.desktop | cut -d= -f2 | tr ';' '\n' | grep '^image/' | sort -u | sed 's/$/=org.gnome.eog.desktop/'
+image/avif=org.gnome.eog.desktop
+image/bmp=org.gnome.eog.desktop
+image/gif=org.gnome.eog.desktop
+image/heic=org.gnome.eog.desktop
+image/jpeg=org.gnome.eog.desktop
+image/jpg=org.gnome.eog.desktop
+image/jxl=org.gnome.eog.desktop
+image/pjpeg=org.gnome.eog.desktop
+image/png=org.gnome.eog.desktop
+image/svg+xml=org.gnome.eog.desktop
+image/svg+xml-compressed=org.gnome.eog.desktop
+image/tiff=org.gnome.eog.desktop
+image/vnd.wap.wbmp=org.gnome.eog.desktop
+image/webp=org.gnome.eog.desktop
+image/x-bmp=org.gnome.eog.desktop
+image/x-gray=org.gnome.eog.desktop
+image/x-icb=org.gnome.eog.desktop
+image/x-icns=org.gnome.eog.desktop
+image/x-ico=org.gnome.eog.desktop
+image/x-pcx=org.gnome.eog.desktop
+image/x-png=org.gnome.eog.desktop
+image/x-portable-anymap=org.gnome.eog.desktop
+image/x-portable-bitmap=org.gnome.eog.desktop
+image/x-portable-graymap=org.gnome.eog.desktop
+image/x-portable-pixmap=org.gnome.eog.desktop
+image/x-xbitmap=org.gnome.eog.desktop
+image/x-xpixmap=org.gnome.eog.desktop
+
+# PDF
+application/pdf=org.gnome.Evince.desktop
+application/x-bzpdf=org.gnome.Evince.desktop
+application/x-gzpdf=org.gnome.Evince.desktop
+application/x-xzpdf=org.gnome.Evince.desktop
+application/x-ext-pdf=org.gnome.Evince.desktop
+
+# Torrents
+application/x-bittorrent=org.qbittorrent.qBittorrent.desktop
+x-scheme-handler/magnet=org.qbittorrent.qBittorrent.desktop
+
+[Added Associations]
