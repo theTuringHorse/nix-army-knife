@@ -34,4 +34,5 @@ export NPM_CONFIG_CACHE="$XDG_CACHE_HOME/npm"
 # export DOCKER_CONFIG="$XDG_CONFIG_HOME/docker"
 # export GNUPGHOME="$XDG_DATA_HOME/gnupg"
 export LESSHISTFILE="$XDG_STATE_HOME/less/history"
+export CLAUDE_CONFIG_DIR="$XDG_CONFIG_HOME/claude"
 export DBX_CONTAINER_MANAGER=podman

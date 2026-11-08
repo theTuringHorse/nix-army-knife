@@ -31,7 +31,6 @@ set -o emacs
 stty stop undef		# Disable ctrl-s to freeze terminal.
 setopt correct
 # unsetopt PROMPT_SP 2>/dev/null
-
 # Better word boundaries: treat / . - _ as word separators for Ctrl+W, Alt+B, etc.
 WORDCHARS='${WORDCHARS:s#/#}'
 # WORDCHARS='${WORDCHARS:s#.#}'
@@ -97,4 +96,4 @@ done
 
 source $ZDOTDIR/keybinds.zsh
 source $ZDOTDIR/utils/pin.zsh
-source $ZDOTDIR/plugins.zsh  # keep last: syntax-highlighting wraps existing widgets
+#source $ZDOTDIR/plugins.zsh  # keep last: syntax-highlighting wraps existing widgets
